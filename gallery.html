@@ -16,11 +16,7 @@
       <img src="images/logo.png" alt="Late Plate">
     </a>
 
-    <button class="burger" id="burger" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
-
-    <nav class="site-nav" id="siteNav">
+    <nav class="site-nav">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="menu.html">Menu</a></li>
@@ -36,63 +32,15 @@
   <main>
 
     <h1>Gallery</h1>
-    <p>The room, the food and the people who keep it running after midnight.</p>
+    <p>The room and the food, after midnight.</p>
 
-    <div class="filter-bar" id="galleryFilter">
-      <button class="pill on" data-category="all" type="button">All</button>
-      <button class="pill" data-category="food" type="button">Food</button>
-      <button class="pill" data-category="interior" type="button">The room</button>
-      <button class="pill" data-category="team" type="button">The team</button>
-    </div>
-
-    <div class="photo-grid" id="photoGrid">
-        <button class="tile" type="button" data-category="food"
-                data-full="images/g-food-1.jpg" data-caption="A plate of eggs and hash at the counter">
-          <img src="images/g-food-1.jpg" alt="A plate of eggs and hash at the counter">
-        </button>
-        <button class="tile" type="button" data-category="interior"
-                data-full="images/g-room-1.jpg" data-caption="The dining room just after midnight">
-          <img src="images/g-room-1.jpg" alt="The dining room just after midnight">
-        </button>
-        <button class="tile" type="button" data-category="team"
-                data-full="images/g-team-1.jpg" data-caption="The night cook working the griddle">
-          <img src="images/g-team-1.jpg" alt="The night cook working the griddle">
-        </button>
-        <button class="tile" type="button" data-category="food"
-                data-full="images/g-food-2.jpg" data-caption="A burger and fries, ready to go out">
-          <img src="images/g-food-2.jpg" alt="A burger and fries, ready to go out">
-        </button>
-        <button class="tile" type="button" data-category="interior"
-                data-full="images/g-room-2.jpg" data-caption="Booths along the window">
-          <img src="images/g-room-2.jpg" alt="Booths along the window">
-        </button>
-        <button class="tile" type="button" data-category="team"
-                data-full="images/g-team-2.jpg" data-caption="A server writing down an order">
-          <img src="images/g-team-2.jpg" alt="A server writing down an order">
-        </button>
-        <button class="tile" type="button" data-category="food"
-                data-full="images/g-food-3.jpg" data-caption="Pancakes under the pass light">
-          <img src="images/g-food-3.jpg" alt="Pancakes under the pass light">
-        </button>
-        <button class="tile" type="button" data-category="interior"
-                data-full="images/g-room-3.jpg" data-caption="The neon sign seen from the street">
-          <img src="images/g-room-3.jpg" alt="The neon sign seen from the street">
-        </button>
-        <button class="tile" type="button" data-category="team"
-                data-full="images/g-team-3.jpg" data-caption="The kitchen at closing time">
-          <img src="images/g-team-3.jpg" alt="The kitchen at closing time">
-        </button>
-    </div>
-
-    <!-- the lightbox sits here, hidden, until a tile is clicked -->
-    <div class="lightbox" id="lightbox" hidden>
-      <button class="lb-close" id="lbClose" type="button" aria-label="Close">&times;</button>
-      <button class="lb-prev" id="lbPrev" type="button" aria-label="Previous photo">&#8249;</button>
-      <figure class="lb-figure">
-        <img id="lbImage" src="images/g-food-1.jpg" alt="">
-        <figcaption id="lbCaption"></figcaption>
-      </figure>
-      <button class="lb-next" id="lbNext" type="button" aria-label="Next photo">&#8250;</button>
+    <div class="photo-grid">
+      <img src="images/g-food-1.jpg" alt="A plate of eggs and hash at the counter">
+      <img src="images/g-room-1.jpg" alt="The dining room just after midnight">
+      <img src="images/g-food-2.jpg" alt="A burger and fries, ready to go out">
+      <img src="images/g-room-2.jpg" alt="Booths along the window">
+      <img src="images/g-food-3.jpg" alt="Pancakes under the pass light">
+      <img src="images/g-room-3.jpg" alt="The neon sign seen from the street">
     </div>
   </main>
 
@@ -100,6 +48,5 @@
     <p>&copy; 2026 Late Plate &middot; 123 Northwestern Ave, West Lafayette, IN</p>
   </footer>
 
-  <script src="js/main.js"></script>
 </body>
 </html>

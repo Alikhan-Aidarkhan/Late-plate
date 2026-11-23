@@ -1,137 +1,147 @@
+/* Late Plate - style.css
+   One stylesheet for every page.
+
+   1. Colours        5. Shared pieces    9.  About
+   2. Basics         6. Home             10. FAQ
+   3. Header + nav   7. Menu             11. Contact form
+   4. Buttons        8. Gallery          12. Quiz
+                                         13. Phone layout
+*/
+
+
+/* ---------- 1. Colours ---------- */
+
 :root {
-  --bg: #f5f0e6;        /* warm paper */
-  --surface: #fffdf8;   /* cards, header, footer */
-  --text: #2a231d;      /* espresso */
+  --bg: #f5f0e6;        /* page background */
+  --surface: #fffdf8;   /* header, footer, boxes */
+  --text: #2a231d;      /* main text */
   --muted: #6b5d50;     /* secondary text */
-  --accent: #a8342a;    /* diner red */
+  --accent: #a8342a;    /* red: headings, buttons, prices */
   --accent-dark: #8c2a21;
   --line: #ddd2c0;      /* borders */
-  --on-accent: #fffdf8; /* text sitting on the accent */
 }
+
+
+/* ---------- 2. Basics ---------- */
 
 * {
   box-sizing: border-box;
 }
 
-/* the hidden attribute must beat our own display rules */
+/* make sure the hidden attribute always hides things (used by the quiz) */
 [hidden] {
   display: none !important;
 }
 
 body {
   margin: 0;
-  background: var(--bg);
+  background-color: var(--bg);
   color: var(--text);
-  font-family: "Figtree", "Segoe UI", system-ui, sans-serif;
+  font-family: "Figtree", "Segoe UI", sans-serif;
   line-height: 1.6;
 }
 
-/* ---------- headings: same family, heavier weight ---------- */
-h1, h2, h3 {
-  font-weight: 800;
-  letter-spacing: -0.015em;
-}
-
-h2 {
-  color: var(--accent);
-}
-
-h3 {
-  letter-spacing: -0.01em;
-}
-
-/* ---------- site header ---------- */
-.site-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 32px;
-  border-bottom: 1px solid var(--line);
-  background: var(--surface);
-}
-
-.logo img {
-  height: 40px;
-  display: block;
-}
-
-/* ---------- main navigation ---------- */
-.site-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 24px;
-}
-
-.site-nav a {
-  color: var(--muted);
-  text-decoration: none;
-  font-size: 15px;
-  letter-spacing: 0.04em;
-  padding: 6px 2px;
-  border-bottom: 2px solid transparent;
-}
-
-.site-nav a:hover {
-  color: var(--accent);
-  border-bottom-color: var(--accent);
-}
-
-.site-nav a.active {
-  color: var(--text);
-  border-bottom-color: var(--text);
-}
-
-/* ---------- burger button, phones only ---------- */
-.burger {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-}
-
-.burger span {
-  display: block;
-  width: 26px;
-  height: 2px;
-  margin: 5px 0;
-  background: var(--text);
-}
-
-/* ---------- page body ---------- */
 main {
   max-width: 1100px;
   margin: 0 auto;
   padding: 40px 32px 72px;
 }
 
+h1, h2, h3 {
+  font-weight: 800;
+  letter-spacing: -0.015em;
+}
+
 h1 {
   font-size: 40px;
-  margin: 0 0 24px;
   line-height: 1.2;
+  margin: 0 0 24px;
 }
 
 h2 {
   font-size: 26px;
-  margin: 40px 0 16px;
+  margin: 48px 0 16px;
+  color: var(--accent);
 }
 
 p {
   max-width: 65ch;
 }
 
-/* ---------- buttons ---------- */
+img {
+  max-width: 100%;
+}
+
+a {
+  color: var(--accent);
+}
+
+
+/* ---------- 3. Header and navigation ---------- */
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+
+.logo img {
+  display: block;
+  height: 40px;
+}
+
+/* the links are a list; this removes the bullets and puts them in a row */
+.site-nav ul {
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-nav a {
+  padding: 6px 2px;
+  border-bottom: 2px solid transparent;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+/* rollover */
+.site-nav a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* the page you are on */
+.site-nav a.active {
+  color: var(--text);
+  border-bottom-color: var(--text);
+}
+
+.site-footer {
+  padding: 32px;
+  background-color: var(--surface);
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+
+/* ---------- 4. Buttons ---------- */
+
 .btn {
   display: inline-block;
   padding: 12px 26px;
   border: 1px solid var(--muted);
   border-radius: 3px;
+  background: none;
   color: var(--text);
+  font: inherit;
   text-decoration: none;
-  font-size: 15px;
-  letter-spacing: 0.04em;
+  cursor: pointer;
 }
 
 .btn:hover {
@@ -140,484 +150,246 @@ p {
 }
 
 .btn-primary {
-  background: var(--accent);
+  background-color: var(--accent);
   border-color: var(--accent);
-  color: var(--on-accent);
+  color: #fff;
 }
 
 .btn-primary:hover {
-  background: var(--accent-dark);
-  border-color: var(--accent-dark);
-  color: var(--on-accent);
+  background-color: var(--accent-dark);
+  color: #fff;
 }
 
-/* ---------- hero ---------- */
-.hero {
-  position: relative;
-  margin-bottom: 72px;
-}
-
-.hero-photo {
-  width: 100%;
-  height: 420px;
-  object-fit: cover;
-  border-radius: 4px;
-  display: block;
-}
-
-.hero-badge {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  width: 200px;
-  border-radius: 4px;
-}
-
-.hero-text {
-  margin-top: 28px;
-}
-
-.hero-buttons {
+.buttons {
   display: flex;
   gap: 16px;
-  margin-top: 28px;
 }
 
-/* ---------- opening hours table ---------- */
-.hours-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: var(--surface);
-  margin-top: 8px;
-}
 
-.hours-table caption {
-  caption-side: bottom;
-  color: var(--muted);
-  font-size: 14px;
-  padding-top: 12px;
-  text-align: left;
-}
+/* ---------- 5. Shared pieces ---------- */
 
-.hours-table th,
-.hours-table td {
-  border: 1px solid var(--line);
-  padding: 12px 16px;
-  text-align: left;
-}
-
-.hours-table thead th {
-  background: #ece2d0;
-  color: var(--accent);
-  font-size: 14px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.hours-table tbody th {
-  font-weight: normal;
-  color: var(--muted);
-}
-
-/* ---------- featured dish cards ---------- */
+/* three cards in a row: home page */
 .cards {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 28px;
 }
 
 .card img {
+  display: block;
   width: 100%;
   height: 200px;
   object-fit: cover;
   border-radius: 4px;
-  display: block;
 }
 
 .card h3 {
   margin: 16px 0 8px;
-  font-size: 20px;
 }
 
 .card p {
   margin: 0 0 8px;
   color: var(--muted);
-  font-size: 15px;
 }
 
-.card .price {
+.price {
   color: var(--accent);
-  font-size: 17px;
+  font-weight: 600;
 }
 
-/* ---------- about teaser: float + clear ---------- */
-.teaser {
-  margin-top: 72px;
+/* tables: opening hours (home) and events */
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--surface);
 }
 
-.teaser-photo {
-  float: left;
-  width: 340px;
-  max-width: 45%;
-  margin: 6px 32px 16px 0;
-  border-radius: 4px;
+.info-table caption {
+  caption-side: bottom;
+  padding-top: 12px;
+  color: var(--muted);
+  font-size: 14px;
+  text-align: left;
 }
 
-.clear-after {
-  clear: both;
-  padding-top: 8px;
+.info-table th,
+.info-table td {
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  text-align: left;
 }
 
-/* ---------- find us ---------- */
-.find-us {
-  display: flex;
-  gap: 40px;
-  align-items: center;
-  margin-top: 72px;
-}
-
-.find-text {
-  flex: 1 1 320px;
-  min-width: 0;
-}
-
-.find-us img {
-  flex: 1 1 380px;
-  min-width: 0;
-  border-radius: 4px;
-}
-
-.find-us a {
+.info-table thead th {
+  background-color: #ece2d0;
   color: var(--accent);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
-/* ---------- quiz teaser ---------- */
-.quiz-teaser {
+.info-table tbody th {
+  font-weight: normal;
+  color: var(--muted);
+}
+
+/* the box at the bottom of some pages */
+.callout {
   margin-top: 72px;
   padding: 40px 32px;
-  background: var(--surface);
+  background-color: var(--surface);
   border: 1px solid var(--line);
   border-radius: 4px;
   text-align: center;
 }
 
-.quiz-teaser h2 {
+.callout h2 {
   margin-top: 0;
 }
 
-/* p has a max-width for readability, so centre the box itself too */
-.quiz-teaser p {
+.callout p {
   margin-left: auto;
   margin-right: auto;
 }
 
-/* ---------- menu filter bar ---------- */
-.filter-bar {
+
+/* ---------- 6. Home ---------- */
+
+/* the big photo is a background image */
+.hero {
+  position: relative;
+  height: 420px;
+  margin-bottom: 32px;
+  border-radius: 4px;
+  background-image: url("../images/hero.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* the GIF badge, pinned to the top right corner of the photo */
+.hero-badge {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 200px;
+}
+
+.find-us {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin: 32px 0 40px;
-  position: sticky;
-  top: 0;
-  padding: 16px 0;
-  background: var(--bg);
-  z-index: 5;
+  align-items: center;
+  gap: 40px;
 }
 
-.pill {
-  padding: 9px 20px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: none;
-  color: var(--muted);
-  font-family: inherit;
-  font-size: 14px;
-  letter-spacing: 0.04em;
-  cursor: pointer;
+.find-us div,
+.find-us img {
+  flex: 1;
+  min-width: 0;
 }
 
-.pill:hover {
-  border-color: var(--accent);
-  color: var(--accent);
+.find-us img {
+  border-radius: 4px;
 }
 
-.pill.on {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--on-accent);
-}
 
-/* ---------- menu list ---------- */
-.menu-list h2 {
-  border-bottom: 1px solid var(--line);
-  padding-bottom: 10px;
-}
+/* ---------- 7. Menu ---------- */
 
 .menu-item {
   display: flex;
   align-items: center;
   gap: 20px;
   padding: 16px 0;
-  border-bottom: 1px solid #e9dfcd;
+  border-bottom: 1px solid var(--line);
 }
 
 .menu-item img {
+  flex: none;
   width: 92px;
   height: 72px;
   object-fit: cover;
   border-radius: 3px;
-  flex: none;
 }
 
-.menu-item-text {
+.menu-item div {
   flex: 1;
-  min-width: 0;
 }
 
-.menu-item h3 {
-  margin: 0 0 4px;
-  font-size: 18px;
-}
-
+.menu-item h3,
 .menu-item p {
   margin: 0;
+}
+
+.menu-item div p {
   color: var(--muted);
-  font-size: 15px;
 }
 
-.menu-item .price {
-  flex: none;
-  color: var(--accent);
-  font-size: 17px;
-}
 
-/* ---------- gallery grid ---------- */
+/* ---------- 8. Gallery ---------- */
+
 .photo-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
-.tile {
-  padding: 0;
-  border: none;
-  background: none;
-  cursor: pointer;
+.photo-grid img {
   display: block;
-  border-radius: 4px;
-  overflow: hidden;
-  line-height: 0;
-}
-
-.tile img {
   width: 100%;
   height: 230px;
   object-fit: cover;
-  display: block;
-  transition: transform 0.25s ease, opacity 0.25s ease;
-}
-
-.tile:hover img {
-  transform: scale(1.04);
-  opacity: 0.9;
-}
-
-.tile:focus-visible {
-  outline: 3px solid var(--accent);
-  outline-offset: 3px;
-}
-
-/* ---------- lightbox ---------- */
-.lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 50;
-  background: rgba(30, 24, 18, 0.92);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  padding: 32px;
-}
-
-.lb-figure {
-  margin: 0;
-  max-width: 1000px;
-  text-align: center;
-}
-
-.lb-figure img {
-  max-width: 100%;
-  max-height: 78vh;
   border-radius: 4px;
+}
+
+
+/* ---------- 9. About ---------- */
+
+/* the floated DIV: text wraps around it */
+.story-photo {
+  float: left;
+  width: 340px;
+  margin: 6px 32px 16px 0;
+}
+
+.story-photo img {
   display: block;
-  margin: 0 auto;
+  width: 100%;
+  border-radius: 4px;
 }
 
-.lb-figure figcaption {
-  color: #f1e9dc;
-  margin-top: 14px;
-  font-size: 15px;
+/* start below the floated photo */
+.clear-after {
+  clear: both;
+  padding-top: 8px;
 }
 
-.lightbox button {
-  background: none;
-  border: 1px solid rgba(241, 233, 220, 0.4);
-  color: #f1e9dc;
-  border-radius: 50%;
-  width: 46px;
-  height: 46px;
-  font-size: 24px;
-  line-height: 1;
-  cursor: pointer;
-  flex: none;
-}
-
-.lightbox button:hover {
-  border-color: #f1e9dc;
-  background: rgba(241, 233, 220, 0.12);
-}
-
-.lb-close {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-}
-
-/* ---------- contact layout ---------- */
-.contact-layout {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 48px;
-  margin-top: 36px;
-}
-
-.booking {
-  flex: 2 1 420px;
-  min-width: 0;
+.members {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px 24px;
-  align-content: start;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
 }
 
-.booking h2,
-.form-summary,
-.field-wide {
-  grid-column: 1 / -1;
-}
-
-.booking h2 {
-  margin: 0;
-}
-
-.contact-info {
-  flex: 1 1 260px;
-  min-width: 0;
-  border-left: 1px solid var(--line);
-  padding-left: 32px;
-}
-
-.contact-info h2 {
-  font-size: 18px;
-  margin: 26px 0 6px;
-}
-
-.contact-info h2:first-child {
-  margin-top: 0;
-}
-
-.contact-info a {
-  color: var(--accent);
-}
-
-/* ---------- form fields ---------- */
-.field {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.field label {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--muted);
-}
-
-.req {
-  color: var(--accent);
-}
-
-.field input,
-.field select,
-.field textarea {
-  font-family: inherit;
-  font-size: 16px;
-  color: var(--text);
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 3px;
-  padding: 11px 12px;
-  width: 100%;
-}
-
-.field input:focus,
-.field select:focus,
-.field textarea:focus {
-  outline: 2px solid var(--accent);
-  outline-offset: 1px;
-  border-color: var(--accent);
-}
-
-.field textarea {
-  resize: vertical;
-}
-
-.field .invalid {
-  border-color: var(--accent);
-  background: #fdf1ee;
-}
-
-.error {
-  margin: 0;
-  font-size: 13px;
-  color: var(--accent);
-}
-
-.form-summary {
-  margin: 0;
-  padding: 12px 16px;
-  border: 1px solid var(--accent);
-  border-radius: 3px;
-  background: #fdf1ee;
-  color: var(--accent-dark);
-  font-size: 15px;
-}
-
-/* keep the submit button at its own width, not stretched by the flex column */
-.field-wide .btn {
-  align-self: flex-start;
-}
-
-.form-note {
-  margin: 10px 0 0;
-  font-size: 14px;
-  color: var(--muted);
-}
-
-.contact-map {
-  width: 100%;
-  border-radius: 4px;
-  margin-top: 56px;
+.member img {
   display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
-/* ---------- faq ---------- */
+.member h3 {
+  margin: 14px 0 4px;
+}
+
+.member p {
+  margin: 0;
+  color: var(--muted);
+}
+
+
+/* ---------- 10. FAQ ---------- */
+
 .jump-links {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin: 28px 0 8px;
   padding: 0;
   list-style: none;
 }
@@ -629,7 +401,6 @@ p {
   border-radius: 999px;
   color: var(--muted);
   text-decoration: none;
-  font-size: 14px;
 }
 
 .jump-links a:hover {
@@ -638,71 +409,81 @@ p {
 }
 
 .faq-item {
+  margin-top: 28px;
+  padding-top: 8px;
   border-top: 1px solid var(--line);
-  padding: 28px 0 8px;
-  scroll-margin-top: 24px;
 }
 
-.faq-item h2 {
-  margin-top: 0;
-  font-size: 22px;
+
+/* ---------- 11. Contact form ---------- */
+
+.contact-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 48px;
 }
 
-.back-to-top {
-  font-size: 14px;
-  color: var(--muted);
-  text-decoration: none;
-}
-
-.back-to-top:hover {
-  color: var(--accent);
-}
-
-/* ---------- page banner ---------- */
-.page-banner {
-  width: 100%;
-  height: 280px;
-  object-fit: cover;
-  border-radius: 4px;
-  display: block;
-  margin-bottom: 28px;
-}
-
-/* ---------- about: team ---------- */
-.members {
+/* the form, selected by its id: two columns of fields */
+#booking {
+  flex: 2;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 28px;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 24px;
 }
 
-.member img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 50%;
+#booking h2,
+.wide {
+  grid-column: 1 / -1;
+}
+
+#booking h2 {
+  margin: 0;
+}
+
+.field label {
   display: block;
+  margin-bottom: 6px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
 }
 
-.member h3 {
-  margin: 14px 0 4px;
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background-color: var(--surface);
+  color: var(--text);
+  font: inherit;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: 2px solid var(--accent);
+}
+
+.contact-info {
+  flex: 1;
+  padding-left: 32px;
+  border-left: 1px solid var(--line);
+}
+
+.contact-info h2 {
+  margin: 24px 0 6px;
   font-size: 18px;
 }
 
-.member p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 15px;
+.contact-info h2:first-child {
+  margin-top: 0;
 }
 
-.story {
-  margin-bottom: 64px;
-}
 
-.team {
-  margin-bottom: 64px;
-}
+/* ---------- 12. Quiz ---------- */
 
-/* ---------- quiz ---------- */
 .quiz {
   max-width: 680px;
   margin: 36px 0 64px;
@@ -710,26 +491,26 @@ p {
 
 .quiz-bar {
   height: 4px;
-  background: var(--line);
-  border-radius: 2px;
-  overflow: hidden;
   margin-bottom: 36px;
+  border-radius: 2px;
+  background-color: var(--line);
+  overflow: hidden;
 }
 
 .quiz-bar span {
   display: block;
-  height: 100%;
   width: 0;
-  background: var(--accent);
+  height: 100%;
+  background-color: var(--accent);
   transition: width 0.3s ease;
 }
 
 .q-count {
   margin: 0 0 6px;
+  color: var(--muted);
   font-size: 13px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--muted);
 }
 
 .question h2 {
@@ -738,24 +519,23 @@ p {
 }
 
 .answers {
-  list-style: none;
-  margin: 0;
-  padding: 0;
   display: flex;
   flex-direction: column;
   gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .answer {
   width: 100%;
-  text-align: left;
-  font-family: inherit;
-  font-size: 16px;
-  color: var(--text);
-  background: var(--surface);
+  padding: 16px 20px;
   border: 1px solid var(--line);
   border-radius: 4px;
-  padding: 16px 20px;
+  background-color: var(--surface);
+  color: var(--text);
+  font: inherit;
+  text-align: left;
   cursor: pointer;
 }
 
@@ -765,12 +545,12 @@ p {
 }
 
 .result img {
+  display: block;
   width: 100%;
   height: 260px;
+  margin-bottom: 18px;
   object-fit: cover;
   border-radius: 4px;
-  display: block;
-  margin-bottom: 18px;
 }
 
 .result h2 {
@@ -784,45 +564,11 @@ p {
   margin-top: 26px;
 }
 
-/* ---------- site footer ---------- */
-.site-footer {
-  background: var(--surface);
-  border-top: 1px solid var(--line);
-  padding: 32px;
-  color: var(--muted);
-  font-size: 14px;
-}
 
-/* ---------- phone layout ---------- */
+/* ---------- 13. Phone layout ---------- */
+/* everything below only applies on screens 640px wide or less */
+
 @media (max-width: 640px) {
-  .burger {
-    display: block;
-  }
-
-  .site-nav {
-    display: none;
-    width: 100%;
-  }
-
-  .site-nav.open {
-    display: block;
-  }
-
-  .site-nav ul {
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .site-nav a {
-    display: block;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .site-header {
-    flex-wrap: wrap;
-    padding: 14px 20px;
-  }
 
   main {
     padding: 28px 20px 56px;
@@ -832,7 +578,48 @@ p {
     font-size: 30px;
   }
 
-  .hero-photo {
+  /* logo on top, links underneath, wrapping onto two lines */
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 20px;
+  }
+
+  .site-nav ul {
+    flex-wrap: wrap;
+    gap: 6px 18px;
+  }
+
+  /* everything that was side by side goes into one column */
+  .buttons,
+  .find-us,
+  .contact-layout {
+    flex-direction: column;
+  }
+
+  .find-us {
+    align-items: stretch;
+  }
+
+  .find-us div,
+  .find-us img,
+  #booking,
+  .contact-info {
+    flex: none;
+  }
+
+  .cards,
+  #booking {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-grid,
+  .members {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero {
     height: 260px;
   }
 
@@ -842,102 +629,26 @@ p {
     right: 14px;
   }
 
-  .hero-buttons {
-    flex-direction: column;
-  }
-
-  .cards {
-    grid-template-columns: 1fr;
-  }
-
-  .teaser-photo {
-    float: none;
-    width: 100%;
-    max-width: 100%;
-    margin: 0 0 20px;
-  }
-
-  .find-us {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .hours-table th,
-  .hours-table td {
-    padding: 10px 12px;
-    font-size: 14px;
-  }
-
-  .filter-bar {
-    gap: 8px;
-    margin: 24px 0 28px;
-  }
-
-  .pill {
-    padding: 8px 14px;
-    font-size: 13px;
-  }
-
-  .menu-item {
-    gap: 14px;
-  }
-
-  .menu-item img {
-    width: 68px;
-    height: 56px;
-  }
-
-  .photo-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-  }
-
-  .tile img {
+  .photo-grid img {
     height: 150px;
   }
 
-  .lightbox {
-    padding: 16px;
-    gap: 8px;
-  }
-
-  .lightbox button {
-    width: 38px;
-    height: 38px;
-    font-size: 20px;
-  }
-
-  .contact-layout {
-    gap: 32px;
-  }
-
-  .booking {
-    grid-template-columns: 1fr;
+  /* no room to float on a phone */
+  .story-photo {
+    float: none;
+    width: 100%;
+    margin: 0 0 20px;
   }
 
   .contact-info {
-    border-left: none;
-    border-top: 1px solid var(--line);
     padding-left: 0;
     padding-top: 28px;
-  }
-
-  .page-banner {
-    height: 180px;
-  }
-
-  .members {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
+    border-left: none;
+    border-top: 1px solid var(--line);
   }
 
   .question h2 {
     font-size: 22px;
-  }
-
-  .answer {
-    padding: 14px 16px;
-    font-size: 15px;
   }
 
   .result img {

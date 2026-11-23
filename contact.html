@@ -16,11 +16,7 @@
       <img src="images/logo.png" alt="Late Plate">
     </a>
 
-    <button class="burger" id="burger" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
-
-    <nav class="site-nav" id="siteNav">
+    <nav class="site-nav">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="menu.html">Menu</a></li>
@@ -36,38 +32,35 @@
   <main>
 
     <h1>Contact &amp; reservations</h1>
-    <p>We hold a few tables each night. Anything larger than six, tell us in the
-       notes and we will call you back.</p>
+    <p>We hold a few tables each night. For more than six people, tell us in
+       the notes and we will call you back.</p>
 
     <div class="contact-layout">
 
-      <form class="booking" id="bookingForm" action="reserve.php" method="post" novalidate>
+      <!-- The form is sent to reserve.php on the server.
+           "required" makes the browser refuse to send it while a field is
+           empty, so no JavaScript is needed for that check. -->
+      <form id="booking" action="reserve.php" method="post">
         <h2>Book a table</h2>
 
-        <p class="form-summary" id="formSummary" hidden>
-          Some required fields are still empty &mdash; they are marked below.
-        </p>
-
         <div class="field">
-          <label for="name">Name <span class="req">*</span></label>
-          <input type="text" id="name" name="name" autocomplete="name">
-          <p class="error" id="err-name" hidden>Please tell us your name.</p>
+          <label for="name">Name *</label>
+          <input type="text" id="name" name="name" required>
         </div>
 
         <div class="field">
-          <label for="email">Email <span class="req">*</span></label>
-          <input type="email" id="email" name="email" autocomplete="email">
-          <p class="error" id="err-email" hidden>We need an email to confirm the booking.</p>
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required>
         </div>
 
         <div class="field">
           <label for="phone">Phone</label>
-          <input type="tel" id="phone" name="phone" autocomplete="tel">
+          <input type="tel" id="phone" name="phone">
         </div>
 
         <div class="field">
-          <label for="party">Party size <span class="req">*</span></label>
-          <select id="party" name="party">
+          <label for="party">Party size *</label>
+          <select id="party" name="party" required>
             <option value="">Choose</option>
             <option value="1">1 person</option>
             <option value="2">2 people</option>
@@ -77,29 +70,25 @@
             <option value="6">6 people</option>
             <option value="more">More than 6</option>
           </select>
-          <p class="error" id="err-party" hidden>Pick how many of you are coming.</p>
         </div>
 
         <div class="field">
-          <label for="date">Date <span class="req">*</span></label>
-          <input type="date" id="date" name="date">
-          <p class="error" id="err-date" hidden>Pick a date.</p>
+          <label for="date">Date *</label>
+          <input type="date" id="date" name="date" required>
         </div>
 
         <div class="field">
-          <label for="time">Time <span class="req">*</span></label>
-          <input type="time" id="time" name="time">
-          <p class="error" id="err-time" hidden>Pick a time.</p>
+          <label for="time">Time *</label>
+          <input type="time" id="time" name="time" required>
         </div>
 
-        <div class="field field-wide">
+        <div class="field wide">
           <label for="notes">Anything we should know</label>
           <textarea id="notes" name="notes" rows="4"></textarea>
         </div>
 
-        <div class="field field-wide">
+        <div class="field wide">
           <button class="btn btn-primary" type="submit">Request table</button>
-          <p class="form-note">We reply by email, usually within the hour we are open.</p>
         </div>
       </form>
 
@@ -108,27 +97,18 @@
         <p>123 Northwestern Avenue<br>West Lafayette, IN 47906</p>
 
         <h2>Hours</h2>
-        <p>Tuesday to Thursday, 6 PM till late<br>
-           Friday and Saturday, till 3 AM<br>
-           Sunday, 5 PM to midnight<br>
-           Closed Mondays</p>
+        <p>Tuesday to Sunday, from 5 or 6 PM<br>Closed Mondays</p>
 
         <h2>Get in touch</h2>
-        <p>hello@lateplate.example<br>
-           (765) 555&ndash;0142</p>
-
-        <p><a href="https://maps.google.com" target="_blank" rel="noopener">Open in Google Maps</a></p>
+        <p>hello@lateplate.example<br>(765) 555&ndash;0142</p>
       </aside>
 
     </div>
-
-    <img class="contact-map" src="images/map.jpg" alt="Map showing Late Plate on Northwestern Avenue">
   </main>
 
   <footer class="site-footer">
     <p>&copy; 2026 Late Plate &middot; 123 Northwestern Ave, West Lafayette, IN</p>
   </footer>
 
-  <script src="js/main.js"></script>
 </body>
 </html>

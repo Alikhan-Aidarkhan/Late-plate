@@ -1,9 +1,9 @@
 <?php
 // reserve.php - receives the booking form from contact.html
 //
-// The JavaScript in js/main.js checks the fields before the form is sent,
-// but a browser with JavaScript switched off would skip that, so the same
-// checks run again here on the server. Never trust what arrives.
+// The "required" attributes in contact.html stop the browser from sending
+// an empty form, but anyone can get around that, so the same checks run
+// again here on the server. Never trust what arrives.
 
 $required = ["name", "email", "party", "date", "time"];
 $errors = [];
@@ -67,11 +67,7 @@ if (empty($errors)) {
       <img src="images/logo.png" alt="Late Plate">
     </a>
 
-    <button class="burger" id="burger" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
-
-    <nav class="site-nav" id="siteNav">
+    <nav class="site-nav">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="menu.html">Menu</a></li>
@@ -91,7 +87,7 @@ if (empty($errors)) {
     <p>We have your request and will email you at
        <strong><?php echo clean($data["email"]); ?></strong> to confirm.</p>
 
-    <table class="hours-table">
+    <table class="info-table">
       <caption>What you asked for. Reply to our email if anything is wrong.</caption>
       <tbody>
         <tr><th scope="row">Date</th><td><?php echo clean($data["date"]); ?></td></tr>
@@ -122,6 +118,5 @@ if (empty($errors)) {
     <p>&copy; 2026 Late Plate &middot; 123 Northwestern Ave, West Lafayette, IN</p>
   </footer>
 
-  <script src="js/main.js"></script>
 </body>
 </html>
