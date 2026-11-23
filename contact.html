@@ -3,10 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact & Reservations — Late Plate</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;800&display=swap">
+  <title>Contact - Late Plate</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -31,83 +28,66 @@
 
   <main>
 
-    <h1>Contact &amp; reservations</h1>
-    <p>We hold a few tables each night. For more than six people, tell us in
-       the notes and we will call you back.</p>
+    <h1>Contact</h1>
+    <p>Fill in the form to book a table. Fields with * are required.</p>
 
-    <div class="contact-layout">
+    <!-- The form is sent to reserve.php on the server.
+         "required" stops the browser from sending it with an empty field. -->
+    <form id="booking" action="reserve.php" method="post">
+      <div class="field">
+        <label for="name">Name *</label>
+        <input type="text" id="name" name="name" required>
+      </div>
 
-      <!-- The form is sent to reserve.php on the server.
-           "required" makes the browser refuse to send it while a field is
-           empty, so no JavaScript is needed for that check. -->
-      <form id="booking" action="reserve.php" method="post">
-        <h2>Book a table</h2>
+      <div class="field">
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" required>
+      </div>
 
-        <div class="field">
-          <label for="name">Name *</label>
-          <input type="text" id="name" name="name" required>
-        </div>
+      <div class="field">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone">
+      </div>
 
-        <div class="field">
-          <label for="email">Email *</label>
-          <input type="email" id="email" name="email" required>
-        </div>
+      <div class="field">
+        <label for="party">Party size *</label>
+        <select id="party" name="party" required>
+          <option value="">Choose</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5+">5 or more</option>
+        </select>
+      </div>
 
-        <div class="field">
-          <label for="phone">Phone</label>
-          <input type="tel" id="phone" name="phone">
-        </div>
+      <div class="field">
+        <label for="date">Date *</label>
+        <input type="date" id="date" name="date" required>
+      </div>
 
-        <div class="field">
-          <label for="party">Party size *</label>
-          <select id="party" name="party" required>
-            <option value="">Choose</option>
-            <option value="1">1 person</option>
-            <option value="2">2 people</option>
-            <option value="3">3 people</option>
-            <option value="4">4 people</option>
-            <option value="5">5 people</option>
-            <option value="6">6 people</option>
-            <option value="more">More than 6</option>
-          </select>
-        </div>
+      <div class="field">
+        <label for="time">Time *</label>
+        <input type="time" id="time" name="time" required>
+      </div>
 
-        <div class="field">
-          <label for="date">Date *</label>
-          <input type="date" id="date" name="date" required>
-        </div>
+      <div class="field">
+        <label for="notes">Notes</label>
+        <textarea id="notes" name="notes" rows="3"></textarea>
+      </div>
 
-        <div class="field">
-          <label for="time">Time *</label>
-          <input type="time" id="time" name="time" required>
-        </div>
+      <button class="btn" type="submit">Book a table</button>
+    </form>
 
-        <div class="field wide">
-          <label for="notes">Anything we should know</label>
-          <textarea id="notes" name="notes" rows="4"></textarea>
-        </div>
-
-        <div class="field wide">
-          <button class="btn btn-primary" type="submit">Request table</button>
-        </div>
-      </form>
-
-      <aside class="contact-info">
-        <h2>Find us</h2>
-        <p>123 Northwestern Avenue<br>West Lafayette, IN 47906</p>
-
-        <h2>Hours</h2>
-        <p>Tuesday to Sunday, from 5 or 6 PM<br>Closed Mondays</p>
-
-        <h2>Get in touch</h2>
-        <p>hello@lateplate.example<br>(765) 555&ndash;0142</p>
-      </aside>
-
-    </div>
+    <section>
+      <h2>Other ways to reach us</h2>
+      <p>123 Northwestern Avenue, West Lafayette, IN 47906<br>
+         (765) 555-0142 &middot; hello@lateplate.example</p>
+    </section>
   </main>
 
   <footer class="site-footer">
-    <p>&copy; 2026 Late Plate &middot; 123 Northwestern Ave, West Lafayette, IN</p>
+    <p>&copy; 2026 Late Plate, West Lafayette, IN</p>
   </footer>
 
 </body>

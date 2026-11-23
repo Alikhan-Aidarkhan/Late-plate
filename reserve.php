@@ -5,48 +5,41 @@
 // an empty form, but anyone can get around that, so the same checks run
 // again here on the server. Never trust what arrives.
 
-$required = ["name", "email", "party", "date", "time"];
-$errors = [];
-$data = [];
-
-foreach ($required as $field) {
-    // ?? "" means: use an empty string if the field was not sent at all
-    $value = trim($_POST[$field] ?? "");
-    if ($value === "") {
-        $errors[] = $field;
-    }
-    $data[$field] = $value;
-}
-
-$data["phone"] = trim($_POST["phone"] ?? "");
-$data["notes"] = trim($_POST["notes"] ?? "");
-
-// a second check on the email, since "abc" passes the not-empty test
-if ($data["email"] !== "" && !filter_var($data["email"], FILTER_VALIDATE_EMAIL)) {
-    $errors[] = "email";
-}
-
-// htmlspecialchars turns < and > into harmless text, so nobody can push
-// their own markup into the page through the form
+// turns < and > into plain text, so nobody can put their own HTML
+// into our page through the form
 function clean($value)
 {
-    return htmlspecialchars($value, ENT_QUOTES, "UTF-8");
+    return htmlspecialchars($value);
 }
 
-if (empty($errors)) {
-    // write the booking to a file next to this script
-    $line = sprintf(
-        "%s | %s | %s | party of %s | %s %s | %s | %s\n",
-        date("Y-m-d H:i:s"),
-        $data["name"],
-        $data["email"],
-        $data["party"],
-        $data["date"],
-        $data["time"],
-        $data["phone"] !== "" ? $data["phone"] : "no phone",
-        $data["notes"] !== "" ? str_replace("\n", " ", $data["notes"]) : "no notes"
-    );
-    file_put_contents(__DIR__ . "/bookings.txt", $line, FILE_APPEND | LOCK_EX);
+// read every field from the form
+// ?? "" means: if the field was not sent at all, use an empty string
+$name  = trim($_POST["name"] ?? "");
+$email = trim($_POST["email"] ?? "");
+$phone = trim($_POST["phone"] ?? "");
+$party = trim($_POST["party"] ?? "");
+$date  = trim($_POST["date"] ?? "");
+$time  = trim($_POST["time"] ?? "");
+$notes = trim($_POST["notes"] ?? "");
+
+// make a list of the required fields that are empty
+$errors = [];
+if ($name == "")  { $errors[] = "name"; }
+if ($email == "") { $errors[] = "email"; }
+if ($party == "") { $errors[] = "party size"; }
+if ($date == "")  { $errors[] = "date"; }
+if ($time == "")  { $errors[] = "time"; }
+
+// "abc" is not empty, so check that the email looks like an email
+if ($email != "" && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $errors[] = "a valid email";
+}
+
+// no errors: save the booking as one line in bookings.txt
+if (count($errors) == 0) {
+    $line = date("Y-m-d H:i") . " | " . $name . " | " . $email . " | " . $phone
+          . " | party of " . $party . " | " . $date . " " . $time . " | " . $notes . "\n";
+    file_put_contents("bookings.txt", $line, FILE_APPEND);
 }
 ?>
 <!DOCTYPE html>
@@ -54,10 +47,7 @@ if (empty($errors)) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?php echo empty($errors) ? "Request received" : "Something is missing"; ?> &mdash; Late Plate</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;800&display=swap">
+  <title>Booking &mdash; Late Plate</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -81,20 +71,20 @@ if (empty($errors)) {
   </header>
 
   <main>
-<?php if (empty($errors)) { ?>
+<?php if (count($errors) == 0) { ?>
 
-    <h1>Thank you, <?php echo clean($data["name"]); ?>.</h1>
+    <h1>Thank you, <?php echo clean($name); ?>.</h1>
     <p>We have your request and will email you at
-       <strong><?php echo clean($data["email"]); ?></strong> to confirm.</p>
+       <strong><?php echo clean($email); ?></strong> to confirm.</p>
 
     <table class="info-table">
       <caption>What you asked for. Reply to our email if anything is wrong.</caption>
       <tbody>
-        <tr><th scope="row">Date</th><td><?php echo clean($data["date"]); ?></td></tr>
-        <tr><th scope="row">Time</th><td><?php echo clean($data["time"]); ?></td></tr>
-        <tr><th scope="row">Party size</th><td><?php echo clean($data["party"]); ?></td></tr>
-        <tr><th scope="row">Phone</th><td><?php echo $data["phone"] !== "" ? clean($data["phone"]) : "&mdash;"; ?></td></tr>
-        <tr><th scope="row">Notes</th><td><?php echo $data["notes"] !== "" ? nl2br(clean($data["notes"])) : "&mdash;"; ?></td></tr>
+        <tr><td>Date</td><td><?php echo clean($date); ?></td></tr>
+        <tr><td>Time</td><td><?php echo clean($time); ?></td></tr>
+        <tr><td>Party size</td><td><?php echo clean($party); ?></td></tr>
+        <tr><td>Phone</td><td><?php echo clean($phone); ?></td></tr>
+        <tr><td>Notes</td><td><?php echo clean($notes); ?></td></tr>
       </tbody>
     </table>
 
@@ -103,7 +93,7 @@ if (empty($errors)) {
 <?php } else { ?>
 
     <h1>Something is missing.</h1>
-    <p>These fields still need filling in:</p>
+    <p>Please fill in:</p>
     <ul>
 <?php foreach ($errors as $field) { ?>
       <li><?php echo clean($field); ?></li>
@@ -115,7 +105,7 @@ if (empty($errors)) {
   </main>
 
   <footer class="site-footer">
-    <p>&copy; 2026 Late Plate &middot; 123 Northwestern Ave, West Lafayette, IN</p>
+    <p>&copy; 2026 Late Plate, West Lafayette, IN</p>
   </footer>
 
 </body>

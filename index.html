@@ -3,10 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Late Plate — late-night diner in West Lafayette</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;800&display=swap">
+  <title>Late Plate</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -31,87 +28,41 @@
 
   <main>
 
-    <!-- Big photo at the top. The photo is a CSS background image,
-         the animated GIF badge sits on top of it. -->
+    <!-- The photo is a CSS background image.
+         The GIF badge is floated to the right inside it. -->
     <div class="hero">
-      <img class="hero-badge" src="images/open-badge.gif" alt="Open now, kitchen runs till 3 AM">
+      <img class="hero-badge" src="images/open-badge.gif" alt="Open now">
     </div>
 
-    <h1>Hot food, long after everything else has closed.</h1>
-    <p>A counter, eight stools and a griddle that does not stop until three
-       in the morning. Two blocks off campus.</p>
-    <p class="buttons">
-      <a class="btn btn-primary" href="menu.html">See the menu</a>
-      <a class="btn" href="contact.html">Book a table</a>
-    </p>
+    <h1>Late Plate</h1>
+    <p>A late-night diner two blocks from campus. The kitchen stays open
+       until 3 AM. Not sure what to order? <a href="quiz.html">Take our quiz</a>.</p>
 
     <section>
-      <h2>When we are open</h2>
+      <h2>Opening hours</h2>
       <table class="info-table">
-        <caption>The kitchen closes thirty minutes before the room does.</caption>
         <thead>
-          <tr>
-            <th scope="col">Day</th>
-            <th scope="col">Kitchen</th>
-            <th scope="col">Room</th>
-          </tr>
+          <tr><th>Day</th><th>Hours</th></tr>
         </thead>
         <tbody>
-          <tr><th scope="row">Monday</th><td>Closed</td><td>Closed</td></tr>
-          <tr><th scope="row">Tuesday &ndash; Wednesday</th><td>6 PM &ndash; 1 AM</td><td>6 PM &ndash; 1:30 AM</td></tr>
-          <tr><th scope="row">Thursday</th><td>6 PM &ndash; 2 AM</td><td>6 PM &ndash; 2:30 AM</td></tr>
-          <tr><th scope="row">Friday &ndash; Saturday</th><td>5 PM &ndash; 3 AM</td><td>5 PM &ndash; 3:30 AM</td></tr>
-          <tr><th scope="row">Sunday</th><td>5 PM &ndash; 12 AM</td><td>5 PM &ndash; 12:30 AM</td></tr>
+          <tr><td>Monday</td><td>Closed</td></tr>
+          <tr><td>Tuesday &ndash; Thursday</td><td>6 PM &ndash; 2 AM</td></tr>
+          <tr><td>Friday &ndash; Saturday</td><td>5 PM &ndash; 3 AM</td></tr>
+          <tr><td>Sunday</td><td>5 PM &ndash; 12 AM</td></tr>
         </tbody>
       </table>
     </section>
 
     <section>
-      <h2>What people order</h2>
-      <div class="cards">
-        <article class="card">
-          <img src="images/dish-1.jpg" alt="Dish one">
-          <h3>Dish name</h3>
-          <p>One or two lines describing the dish.</p>
-          <p class="price">$0.00</p>
-        </article>
-        <article class="card">
-          <img src="images/dish-2.jpg" alt="Dish two">
-          <h3>Dish name</h3>
-          <p>One or two lines describing the dish.</p>
-          <p class="price">$0.00</p>
-        </article>
-        <article class="card">
-          <img src="images/dish-3.jpg" alt="Dish three">
-          <h3>Dish name</h3>
-          <p>One or two lines describing the dish.</p>
-          <p class="price">$0.00</p>
-        </article>
-      </div>
-    </section>
-
-    <section>
       <h2>Find us</h2>
-      <div class="find-us">
-        <div>
-          <p>123 Northwestern Avenue<br>West Lafayette, IN 47906</p>
-          <p>Two blocks from the Purdue Memorial Union. Street parking after 6 PM.</p>
-          <!-- a link to another website -->
-          <p><a href="https://maps.google.com" target="_blank" rel="noopener">Open in Google Maps</a></p>
-        </div>
-        <img src="images/map.jpg" alt="Map showing Late Plate on Northwestern Avenue">
-      </div>
+      <p>123 Northwestern Avenue, West Lafayette, IN 47906</p>
+      <!-- a link to another website -->
+      <p><a href="https://maps.google.com" target="_blank">Open in Google Maps</a></p>
     </section>
-
-    <aside class="callout">
-      <h2>Not sure what you want?</h2>
-      <p>Answer five questions and we will tell you what to order tonight.</p>
-      <p><a class="btn btn-primary" href="quiz.html">Take the quiz</a></p>
-    </aside>
   </main>
 
   <footer class="site-footer">
-    <p>&copy; 2026 Late Plate &middot; 123 Northwestern Ave, West Lafayette, IN</p>
+    <p>&copy; 2026 Late Plate, West Lafayette, IN</p>
   </footer>
 
 </body>

@@ -1,657 +1,270 @@
 /* Late Plate - style.css
    One stylesheet for every page.
 
-   1. Colours        5. Shared pieces    9.  About
-   2. Basics         6. Home             10. FAQ
-   3. Header + nav   7. Menu             11. Contact form
-   4. Buttons        8. Gallery          12. Quiz
-                                         13. Phone layout
+   Colours:
+   #f5f0e6  beige background
+   #fffdf8  off-white (header, footer, tables)
+   #2a231d  dark brown text
+   #a8342a  red (headings, links, buttons)
+   #ddd2c0  light borders
 */
 
 
-/* ---------- 1. Colours ---------- */
-
-:root {
-  --bg: #f5f0e6;        /* page background */
-  --surface: #fffdf8;   /* header, footer, boxes */
-  --text: #2a231d;      /* main text */
-  --muted: #6b5d50;     /* secondary text */
-  --accent: #a8342a;    /* red: headings, buttons, prices */
-  --accent-dark: #8c2a21;
-  --line: #ddd2c0;      /* borders */
-}
-
-
-/* ---------- 2. Basics ---------- */
-
-* {
-  box-sizing: border-box;
-}
-
-/* make sure the hidden attribute always hides things (used by the quiz) */
-[hidden] {
-  display: none !important;
-}
+/* ---------- Basics ---------- */
 
 body {
   margin: 0;
-  background-color: var(--bg);
-  color: var(--text);
-  font-family: "Figtree", "Segoe UI", sans-serif;
+  background-color: #f5f0e6;
+  color: #2a231d;
+  font-family: Arial, sans-serif;
   line-height: 1.6;
 }
 
 main {
-  max-width: 1100px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 40px 32px 72px;
+  padding: 20px;
 }
 
-h1, h2, h3 {
-  font-weight: 800;
-  letter-spacing: -0.015em;
-}
-
-h1 {
-  font-size: 40px;
-  line-height: 1.2;
-  margin: 0 0 24px;
-}
-
+h1,
 h2 {
-  font-size: 26px;
-  margin: 48px 0 16px;
-  color: var(--accent);
+  color: #a8342a;
 }
 
-p {
-  max-width: 65ch;
+a {
+  color: #a8342a;
 }
 
 img {
   max-width: 100%;
 }
 
-a {
-  color: var(--accent);
-}
 
-
-/* ---------- 3. Header and navigation ---------- */
+/* ---------- Header and navigation ---------- */
 
 .site-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 32px;
-  background-color: var(--surface);
-  border-bottom: 1px solid var(--line);
+  padding: 15px 20px;
+  background-color: #fffdf8;
+  border-bottom: 1px solid #ddd2c0;
 }
 
 .logo img {
-  display: block;
   height: 40px;
 }
 
-/* the links are a list; this removes the bullets and puts them in a row */
+/* the links are a list: no bullets, side by side */
 .site-nav ul {
-  display: flex;
-  gap: 24px;
-  margin: 0;
+  margin: 10px 0 0;
   padding: 0;
   list-style: none;
 }
 
+.site-nav li {
+  display: inline-block;
+  margin: 0 5px 5px 0;
+}
+
 .site-nav a {
-  padding: 6px 2px;
-  border-bottom: 2px solid transparent;
-  color: var(--muted);
+  display: block;
+  padding: 6px 12px;
+  color: #2a231d;
   text-decoration: none;
 }
 
-/* rollover */
-.site-nav a:hover {
-  color: var(--accent);
-  border-bottom-color: var(--accent);
-}
-
-/* the page you are on */
+/* rollover: the link turns into a red button */
+.site-nav a:hover,
 .site-nav a.active {
-  color: var(--text);
-  border-bottom-color: var(--text);
+  background-color: #a8342a;
+  color: white;
 }
 
 .site-footer {
-  padding: 32px;
-  background-color: var(--surface);
-  border-top: 1px solid var(--line);
-  color: var(--muted);
+  padding: 10px 20px;
+  background-color: #fffdf8;
+  border-top: 1px solid #ddd2c0;
   font-size: 14px;
 }
 
 
-/* ---------- 4. Buttons ---------- */
+/* ---------- Buttons ---------- */
 
 .btn {
   display: inline-block;
-  padding: 12px 26px;
-  border: 1px solid var(--muted);
-  border-radius: 3px;
-  background: none;
-  color: var(--text);
-  font: inherit;
+  padding: 10px 20px;
+  border: none;
+  background-color: #a8342a;
+  color: white;
+  font-size: 16px;
   text-decoration: none;
   cursor: pointer;
 }
 
 .btn:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-.btn-primary {
-  background-color: var(--accent);
-  border-color: var(--accent);
-  color: #fff;
-}
-
-.btn-primary:hover {
-  background-color: var(--accent-dark);
-  color: #fff;
-}
-
-.buttons {
-  display: flex;
-  gap: 16px;
+  background-color: #2a231d;
 }
 
 
-/* ---------- 5. Shared pieces ---------- */
+/* ---------- Tables (home, menu, events) ---------- */
 
-/* three cards in a row: home page */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-}
-
-.card img {
-  display: block;
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 4px;
-}
-
-.card h3 {
-  margin: 16px 0 8px;
-}
-
-.card p {
-  margin: 0 0 8px;
-  color: var(--muted);
-}
-
-.price {
-  color: var(--accent);
-  font-weight: 600;
-}
-
-/* tables: opening hours (home) and events */
 .info-table {
   width: 100%;
   border-collapse: collapse;
-  background-color: var(--surface);
-}
-
-.info-table caption {
-  caption-side: bottom;
-  padding-top: 12px;
-  color: var(--muted);
-  font-size: 14px;
-  text-align: left;
+  background-color: #fffdf8;
 }
 
 .info-table th,
 .info-table td {
-  padding: 12px 16px;
-  border: 1px solid var(--line);
+  padding: 8px 12px;
+  border: 1px solid #ddd2c0;
   text-align: left;
 }
 
-.info-table thead th {
-  background-color: #ece2d0;
-  color: var(--accent);
-  font-size: 14px;
+.info-table th {
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-.info-table tbody th {
-  font-weight: normal;
-  color: var(--muted);
-}
-
-/* the box at the bottom of some pages */
-.callout {
-  margin-top: 72px;
-  padding: 40px 32px;
-  background-color: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  text-align: center;
-}
-
-.callout h2 {
-  margin-top: 0;
-}
-
-.callout p {
-  margin-left: auto;
-  margin-right: auto;
 }
 
 
-/* ---------- 6. Home ---------- */
+/* ---------- Home ---------- */
 
 /* the big photo is a background image */
 .hero {
-  position: relative;
-  height: 420px;
-  margin-bottom: 32px;
-  border-radius: 4px;
+  height: 350px;
+  padding: 15px;
   background-image: url("../images/hero.jpg");
   background-size: cover;
-  background-position: center;
 }
 
-/* the GIF badge, pinned to the top right corner of the photo */
+/* the GIF badge sits in the top right corner of the photo */
 .hero-badge {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  width: 200px;
-}
-
-.find-us {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-}
-
-.find-us div,
-.find-us img {
-  flex: 1;
-  min-width: 0;
-}
-
-.find-us img {
-  border-radius: 4px;
+  float: right;
+  width: 180px;
 }
 
 
-/* ---------- 7. Menu ---------- */
+/* ---------- Gallery ---------- */
 
-.menu-item {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding: 16px 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.menu-item img {
-  flex: none;
-  width: 92px;
-  height: 72px;
-  object-fit: cover;
-  border-radius: 3px;
-}
-
-.menu-item div {
-  flex: 1;
-}
-
-.menu-item h3,
-.menu-item p {
-  margin: 0;
-}
-
-.menu-item div p {
-  color: var(--muted);
-}
-
-
-/* ---------- 8. Gallery ---------- */
-
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
+/* three photos per row */
 .photo-grid img {
-  display: block;
-  width: 100%;
-  height: 230px;
-  object-fit: cover;
-  border-radius: 4px;
+  width: 32%;
 }
 
 
-/* ---------- 9. About ---------- */
+/* ---------- About ---------- */
 
-/* the floated DIV: text wraps around it */
+/* the floated DIV: the text wraps around it */
 .story-photo {
   float: left;
-  width: 340px;
-  margin: 6px 32px 16px 0;
+  width: 300px;
+  margin: 0 20px 10px 0;
 }
 
-.story-photo img {
-  display: block;
-  width: 100%;
-  border-radius: 4px;
-}
-
-/* start below the floated photo */
+/* this paragraph starts below the floated photo */
 .clear-after {
   clear: both;
-  padding-top: 8px;
-}
-
-.members {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-}
-
-.member img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-.member h3 {
-  margin: 14px 0 4px;
-}
-
-.member p {
-  margin: 0;
-  color: var(--muted);
 }
 
 
-/* ---------- 10. FAQ ---------- */
-
-.jump-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  padding: 0;
-  list-style: none;
-}
-
-.jump-links a {
-  display: inline-block;
-  padding: 9px 18px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  color: var(--muted);
-  text-decoration: none;
-}
-
-.jump-links a:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
+/* ---------- FAQ ---------- */
 
 .faq-item {
-  margin-top: 28px;
-  padding-top: 8px;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid #ddd2c0;
 }
 
 
-/* ---------- 11. Contact form ---------- */
+/* ---------- Contact form ---------- */
 
-.contact-layout {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 48px;
-}
-
-/* the form, selected by its id: two columns of fields */
+/* the form, selected by its id */
 #booking {
-  flex: 2;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px 24px;
+  max-width: 400px;
 }
 
-#booking h2,
-.wide {
-  grid-column: 1 / -1;
-}
-
-#booking h2 {
-  margin: 0;
+.field {
+  margin-bottom: 12px;
 }
 
 .field label {
   display: block;
-  margin-bottom: 6px;
-  color: var(--muted);
-  font-size: 14px;
-  font-weight: 600;
+  font-weight: bold;
 }
 
 .field input,
 .field select,
 .field textarea {
   width: 100%;
-  padding: 11px 12px;
-  border: 1px solid var(--line);
-  border-radius: 3px;
-  background-color: var(--surface);
-  color: var(--text);
-  font: inherit;
-}
-
-.field input:focus,
-.field select:focus,
-.field textarea:focus {
-  outline: 2px solid var(--accent);
-}
-
-.contact-info {
-  flex: 1;
-  padding-left: 32px;
-  border-left: 1px solid var(--line);
-}
-
-.contact-info h2 {
-  margin: 24px 0 6px;
-  font-size: 18px;
-}
-
-.contact-info h2:first-child {
-  margin-top: 0;
+  padding: 8px;
+  border: 1px solid #ddd2c0;
+  box-sizing: border-box;
 }
 
 
-/* ---------- 12. Quiz ---------- */
+/* ---------- Quiz ---------- */
 
 .quiz {
-  max-width: 680px;
-  margin: 36px 0 64px;
+  max-width: 600px;
 }
 
 .quiz-bar {
-  height: 4px;
-  margin-bottom: 36px;
-  border-radius: 2px;
-  background-color: var(--line);
-  overflow: hidden;
+  height: 5px;
+  margin-bottom: 20px;
+  background-color: #ddd2c0;
 }
 
 .quiz-bar span {
   display: block;
   width: 0;
   height: 100%;
-  background-color: var(--accent);
-  transition: width 0.3s ease;
+  background-color: #a8342a;
 }
 
 .q-count {
-  margin: 0 0 6px;
-  color: var(--muted);
-  font-size: 13px;
-  letter-spacing: 0.08em;
+  color: #a8342a;
   text-transform: uppercase;
 }
 
-.question h2 {
-  margin: 0 0 24px;
-  font-size: 28px;
-}
-
 .answers {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .answer {
   width: 100%;
-  padding: 16px 20px;
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  background-color: var(--surface);
-  color: var(--text);
-  font: inherit;
+  margin-bottom: 10px;
+  padding: 12px;
+  border: 1px solid #ddd2c0;
+  background-color: #fffdf8;
+  font-size: 16px;
   text-align: left;
   cursor: pointer;
 }
 
 .answer:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-.result img {
-  display: block;
-  width: 100%;
-  height: 260px;
-  margin-bottom: 18px;
-  object-fit: cover;
-  border-radius: 4px;
-}
-
-.result h2 {
-  margin: 0 0 10px;
-}
-
-.result-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 26px;
+  border-color: #a8342a;
+  color: #a8342a;
 }
 
 
-/* ---------- 13. Phone layout ---------- */
-/* everything below only applies on screens 640px wide or less */
+/* ---------- Phone layout ---------- */
+/* only applies on screens 600px wide or less */
 
-@media (max-width: 640px) {
-
-  main {
-    padding: 28px 20px 56px;
-  }
-
-  h1 {
-    font-size: 30px;
-  }
-
-  /* logo on top, links underneath, wrapping onto two lines */
-  .site-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 14px 20px;
-  }
-
-  .site-nav ul {
-    flex-wrap: wrap;
-    gap: 6px 18px;
-  }
-
-  /* everything that was side by side goes into one column */
-  .buttons,
-  .find-us,
-  .contact-layout {
-    flex-direction: column;
-  }
-
-  .find-us {
-    align-items: stretch;
-  }
-
-  .find-us div,
-  .find-us img,
-  #booking,
-  .contact-info {
-    flex: none;
-  }
-
-  .cards,
-  #booking {
-    grid-template-columns: 1fr;
-  }
-
-  .photo-grid,
-  .members {
-    grid-template-columns: 1fr 1fr;
-  }
+@media (max-width: 600px) {
 
   .hero {
-    height: 260px;
+    height: 200px;
   }
 
   .hero-badge {
-    width: 140px;
-    top: 14px;
-    right: 14px;
+    width: 120px;
   }
 
+  /* two photos per row instead of three */
   .photo-grid img {
-    height: 150px;
+    width: 48%;
   }
 
   /* no room to float on a phone */
   .story-photo {
     float: none;
     width: 100%;
-    margin: 0 0 20px;
-  }
-
-  .contact-info {
-    padding-left: 0;
-    padding-top: 28px;
-    border-left: none;
-    border-top: 1px solid var(--line);
-  }
-
-  .question h2 {
-    font-size: 22px;
-  }
-
-  .result img {
-    height: 180px;
+    margin: 0;
   }
 }
