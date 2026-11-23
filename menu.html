@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Menu — Late Plate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;800&display=swap">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -31,7 +34,196 @@
   </header>
 
   <main>
+
     <h1>Menu</h1>
+    <p>Everything is cooked to order. The kitchen stops thirty minutes before we close.</p>
+
+    <div class="filter-bar" id="filterBar">
+          <button class="pill on" data-category="all" type="button">All</button>
+          <button class="pill" data-category="breakfast" type="button">Breakfast</button>
+          <button class="pill" data-category="burgers" type="button">Burgers & sandwiches</button>
+          <button class="pill" data-category="plates" type="button">Plates</button>
+          <button class="pill" data-category="sides" type="button">Sides</button>
+          <button class="pill" data-category="drinks" type="button">Drinks</button>
+    </div>
+
+    <div class="menu-list" id="menuList">
+        <h2 id="breakfast">Breakfast, all night</h2>
+          <article class="menu-item" data-category="breakfast">
+            <img src="images/dish-2.jpg" alt="">
+            <div class="menu-item-text">
+              <h3>Item name</h3>
+              <p>One line of description, written by the team.</p>
+            </div>
+            <p class="price">$0.00</p>
+          </article>
+          <article class="menu-item" data-category="breakfast">
+            <img src="images/dish-3.jpg" alt="">
+            <div class="menu-item-text">
+              <h3>Item name</h3>
+              <p>One line of description, written by the team.</p>
+            </div>
+            <p class="price">$0.00</p>
+          </article>
+          <article class="menu-item" data-category="breakfast">
+            <img src="images/dish-1.jpg" alt="">
+            <div class="menu-item-text">
+              <h3>Item name</h3>
+              <p>One line of description, written by the team.</p>
+            </div>
+            <p class="price">$0.00</p>
+          </article>
+          <article class="menu-item" data-category="breakfast">
+            <img src="images/dish-2.jpg" alt="">
+            <div class="menu-item-text">
+              <h3>Item name</h3>
+              <p>One line of description, written by the team.</p>
+            </div>
+            <p class="price">$0.00</p>
+          </article>
+
+        <h2 id="burgers">Burgers &amp; sandwiches</h2>
+          <article class="menu-item" data-category="burgers">
+            <img src="images/dish-3.jpg" alt="">
+            <div class="menu-item-text">
+              <h3>Item name</h3>
+              <p>One line of description, written by the team.</p>
+            </div>
+            <p class="price">$0.00</p>
+          </article>
+          <article class="menu-item" data-category="burgers">
+            <img src="images/dish-1.jpg" alt="">
+            <div class="menu-item-text">
+              <h3>Item name</h3>
+              <p>One line of description, written by the team.</p>
+            </div>
+            <p class="price">$0.00</p>
+          </article>
+          <article class="menu-item" data-category="burgers">
+            <img src="images/dish-2.jpg" alt="">
+            <div class="menu-item-text">
+              <h3>Item name</h3>
+              <p>One line of description, written by the team.</p>
+            </div>
+            <p class="price">$0.00</p>
+          </article>
+          <article class="menu-item" data-category="burgers">
+            <img src="images/dish-3.jpg" alt="">
+            <div class="menu-item-text">
+              <h3>Item name</h3>
+              <p>One line of description, written by the team.</p>
+            </div>
+            <p class="price">$0.00</p>
+          </article>
+
+        <h2 id="plates">Plates</h2>
+          <article class="menu-item" data-category="plates">
+            <img src="images/dish-1.jpg" alt="">
+            <div class="menu-item-text">
+              <h3>Item name</h3>
+              <p>One line of description, written by the team.</p>
+            </div>
+            <p class="price">$0.00</p>
+          </article>
+          <article class="menu-item" data-category="plates">
+            <img src="images/dish-2.jpg" alt="">
+            <div class="menu-item-text">
+              <h3>Item name</h3>
+              <p>One line of description, written by the team.</p>
+            </div>
+            <p class="price">$0.00</p>
+          </article>
+          <article class="menu-item" data-category="plates">
+            <img src="images/dish-3.jpg" alt="">
+            <div class="menu-item-text">
+              <h3>Item name</h3>
+              <p>One line of description, written by the team.</p>
+            </div>
+            <p class="price">$0.00</p>
+          </article>
+          <article class="menu-item" data-category="plates">
+            <img src="images/dish-1.jpg" alt="">
+            <div class="menu-item-text">
+              <h3>Item name</h3>
+              <p>One line of description, written by the team.</p>
+            </div>
+            <p class="price">$0.00</p>
+          </article>
+
+        <h2 id="sides">Sides</h2>
+          <article class="menu-item" data-category="sides">
+            <img src="images/dish-2.jpg" alt="">
+            <div class="menu-item-text">
+              <h3>Item name</h3>
+              <p>One line of description, written by the team.</p>
+            </div>
+            <p class="price">$0.00</p>
+          </article>
+          <article class="menu-item" data-category="sides">
+            <img src="images/dish-3.jpg" alt="">
+            <div class="menu-item-text">
+              <h3>Item name</h3>
+              <p>One line of description, written by the team.</p>
+            </div>
+            <p class="price">$0.00</p>
+          </article>
+          <article class="menu-item" data-category="sides">
+            <img src="images/dish-1.jpg" alt="">
+            <div class="menu-item-text">
+              <h3>Item name</h3>
+              <p>One line of description, written by the team.</p>
+            </div>
+            <p class="price">$0.00</p>
+          </article>
+          <article class="menu-item" data-category="sides">
+            <img src="images/dish-2.jpg" alt="">
+            <div class="menu-item-text">
+              <h3>Item name</h3>
+              <p>One line of description, written by the team.</p>
+            </div>
+            <p class="price">$0.00</p>
+          </article>
+
+        <h2 id="drinks">Drinks</h2>
+          <article class="menu-item" data-category="drinks">
+            <img src="images/dish-3.jpg" alt="">
+            <div class="menu-item-text">
+              <h3>Item name</h3>
+              <p>One line of description, written by the team.</p>
+            </div>
+            <p class="price">$0.00</p>
+          </article>
+          <article class="menu-item" data-category="drinks">
+            <img src="images/dish-1.jpg" alt="">
+            <div class="menu-item-text">
+              <h3>Item name</h3>
+              <p>One line of description, written by the team.</p>
+            </div>
+            <p class="price">$0.00</p>
+          </article>
+          <article class="menu-item" data-category="drinks">
+            <img src="images/dish-2.jpg" alt="">
+            <div class="menu-item-text">
+              <h3>Item name</h3>
+              <p>One line of description, written by the team.</p>
+            </div>
+            <p class="price">$0.00</p>
+          </article>
+          <article class="menu-item" data-category="drinks">
+            <img src="images/dish-3.jpg" alt="">
+            <div class="menu-item-text">
+              <h3>Item name</h3>
+              <p>One line of description, written by the team.</p>
+            </div>
+            <p class="price">$0.00</p>
+          </article>
+    </div>
+
+    <section class="quiz-teaser">
+      <h2>Cannot decide?</h2>
+      <p>Five questions and we will pick something for you.</p>
+      <p><a class="btn btn-primary" href="quiz.html">Take the quiz</a></p>
+    </section>
   </main>
 
   <footer class="site-footer">

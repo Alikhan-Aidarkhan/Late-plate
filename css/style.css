@@ -1,22 +1,43 @@
 :root {
-  --bg: #15110f;
-  --surface: #1f1a17;
-  --text: #f2e9e1;
-  --muted: #a89a8e;
-  --accent: #e8a33d;
-  --line: #342c27;
+  --bg: #f5f0e6;        /* warm paper */
+  --surface: #fffdf8;   /* cards, header, footer */
+  --text: #2a231d;      /* espresso */
+  --muted: #6b5d50;     /* secondary text */
+  --accent: #a8342a;    /* diner red */
+  --accent-dark: #8c2a21;
+  --line: #ddd2c0;      /* borders */
+  --on-accent: #fffdf8; /* text sitting on the accent */
 }
 
 * {
   box-sizing: border-box;
 }
 
+/* the hidden attribute must beat our own display rules */
+[hidden] {
+  display: none !important;
+}
+
 body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Figtree", "Segoe UI", system-ui, sans-serif;
   line-height: 1.6;
+}
+
+/* ---------- headings: same family, heavier weight ---------- */
+h1, h2, h3 {
+  font-weight: 800;
+  letter-spacing: -0.015em;
+}
+
+h2 {
+  color: var(--accent);
+}
+
+h3 {
+  letter-spacing: -0.01em;
 }
 
 /* ---------- site header ---------- */
@@ -121,13 +142,13 @@ p {
 .btn-primary {
   background: var(--accent);
   border-color: var(--accent);
-  color: #1a1512;
+  color: var(--on-accent);
 }
 
 .btn-primary:hover {
-  background: #f0b45c;
-  border-color: #f0b45c;
-  color: #1a1512;
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+  color: var(--on-accent);
 }
 
 /* ---------- hero ---------- */
@@ -186,7 +207,7 @@ p {
 }
 
 .hours-table thead th {
-  background: #272019;
+  background: #ece2d0;
   color: var(--accent);
   font-size: 14px;
   letter-spacing: 0.06em;
@@ -284,8 +305,188 @@ p {
   margin-top: 0;
 }
 
+/* p has a max-width for readability, so centre the box itself too */
+.quiz-teaser p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- menu filter bar ---------- */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 32px 0 40px;
+  position: sticky;
+  top: 0;
+  padding: 16px 0;
+  background: var(--bg);
+  z-index: 5;
+}
+
+.pill {
+  padding: 9px 20px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: none;
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+.pill:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.pill.on {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+
+/* ---------- menu list ---------- */
+.menu-list h2 {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 10px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 0;
+  border-bottom: 1px solid #e9dfcd;
+}
+
+.menu-item img {
+  width: 92px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 3px;
+  flex: none;
+}
+
+.menu-item-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.menu-item h3 {
+  margin: 0 0 4px;
+  font-size: 18px;
+}
+
+.menu-item p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.menu-item .price {
+  flex: none;
+  color: var(--accent);
+  font-size: 17px;
+}
+
+/* ---------- gallery grid ---------- */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.tile {
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: block;
+  border-radius: 4px;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.tile img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.tile:hover img {
+  transform: scale(1.04);
+  opacity: 0.9;
+}
+
+.tile:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ---------- lightbox ---------- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(30, 24, 18, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 32px;
+}
+
+.lb-figure {
+  margin: 0;
+  max-width: 1000px;
+  text-align: center;
+}
+
+.lb-figure img {
+  max-width: 100%;
+  max-height: 78vh;
+  border-radius: 4px;
+  display: block;
+  margin: 0 auto;
+}
+
+.lb-figure figcaption {
+  color: #f1e9dc;
+  margin-top: 14px;
+  font-size: 15px;
+}
+
+.lightbox button {
+  background: none;
+  border: 1px solid rgba(241, 233, 220, 0.4);
+  color: #f1e9dc;
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  flex: none;
+}
+
+.lightbox button:hover {
+  border-color: #f1e9dc;
+  background: rgba(241, 233, 220, 0.12);
+}
+
+.lb-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+
 /* ---------- site footer ---------- */
 .site-footer {
+  background: var(--surface);
   border-top: 1px solid var(--line);
   padding: 32px;
   color: var(--muted);
@@ -365,5 +566,44 @@ p {
   .hours-table td {
     padding: 10px 12px;
     font-size: 14px;
+  }
+
+  .filter-bar {
+    gap: 8px;
+    margin: 24px 0 28px;
+  }
+
+  .pill {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
+  .menu-item {
+    gap: 14px;
+  }
+
+  .menu-item img {
+    width: 68px;
+    height: 56px;
+  }
+
+  .photo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .tile img {
+    height: 150px;
+  }
+
+  .lightbox {
+    padding: 16px;
+    gap: 8px;
+  }
+
+  .lightbox button {
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
   }
 }
