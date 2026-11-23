@@ -34,7 +34,103 @@
   </header>
 
   <main>
+
     <h1>What should I eat tonight?</h1>
+    <p>Five questions, one answer, no wrong choices. It only uses what is
+       already on our menu.</p>
+
+    <div class="quiz" id="quiz">
+
+      <div class="quiz-bar"><span id="quizBar"></span></div>
+
+      <section class="question" data-step="1">
+        <p class="q-count">Question 1 of 5</p>
+        <h2>How long has your day been?</h2>
+        <ul class="answers">
+          <li><button class="answer" type="button" data-dish="burger">Long. I want something I can hold in one hand.</button></li>
+          <li><button class="answer" type="button" data-dish="breakfast">It has not ended yet, honestly.</button></li>
+          <li><button class="answer" type="button" data-dish="plate">Normal, I am just hungry.</button></li>
+          <li><button class="answer" type="button" data-dish="sweet">Fine. I am mostly here for dessert.</button></li>
+        </ul>
+      </section>
+
+      <section class="question" data-step="2" hidden>
+        <p class="q-count">Question 2 of 5</p>
+        <h2>What time is it?</h2>
+        <ul class="answers">
+          <li><button class="answer" type="button" data-dish="breakfast">Somewhere between two and four in the morning.</button></li>
+          <li><button class="answer" type="button" data-dish="burger">Around midnight.</button></li>
+          <li><button class="answer" type="button" data-dish="plate">Early for us, maybe eight.</button></li>
+          <li><button class="answer" type="button" data-dish="sweet">No idea and I do not want to look.</button></li>
+        </ul>
+      </section>
+
+      <section class="question" data-step="3" hidden>
+        <p class="q-count">Question 3 of 5</p>
+        <h2>How hungry are you, really?</h2>
+        <ul class="answers">
+          <li><button class="answer" type="button" data-dish="plate">I could eat a full plate and then some.</button></li>
+          <li><button class="answer" type="button" data-dish="burger">Properly hungry.</button></li>
+          <li><button class="answer" type="button" data-dish="breakfast">I want something warm more than something big.</button></li>
+          <li><button class="answer" type="button" data-dish="sweet">Not very. Just something small.</button></li>
+        </ul>
+      </section>
+
+      <section class="question" data-step="4" hidden>
+        <p class="q-count">Question 4 of 5</p>
+        <h2>Pick a sound.</h2>
+        <ul class="answers">
+          <li><button class="answer" type="button" data-dish="breakfast">Eggs hitting a hot griddle.</button></li>
+          <li><button class="answer" type="button" data-dish="burger">A patty being pressed down.</button></li>
+          <li><button class="answer" type="button" data-dish="plate">A fork on a full plate.</button></li>
+          <li><button class="answer" type="button" data-dish="sweet">The fridge door opening.</button></li>
+        </ul>
+      </section>
+
+      <section class="question" data-step="5" hidden>
+        <p class="q-count">Question 5 of 5</p>
+        <h2>What would ruin the meal?</h2>
+        <ul class="answers">
+          <li><button class="answer" type="button" data-dish="burger">Having to use a knife and fork.</button></li>
+          <li><button class="answer" type="button" data-dish="breakfast">Anything heavy sitting in my stomach.</button></li>
+          <li><button class="answer" type="button" data-dish="plate">Leaving still hungry.</button></li>
+          <li><button class="answer" type="button" data-dish="sweet">Nothing sweet at the end of it.</button></li>
+        </ul>
+      </section>
+
+      <section class="quiz-result" id="quizResult" hidden>
+        <p class="q-count">You should order</p>
+        <article class="result" data-dish="burger" hidden>
+          <img src="images/dish-1.jpg" alt="">
+          <h2>The counter burger</h2>
+          <p>Two thin patties, onion cooked into the crust, American cheese. The thing most people order and then order again.</p>
+          <p class="price">$11.00</p>
+        </article>
+        <article class="result" data-dish="breakfast" hidden>
+          <img src="images/dish-2.jpg" alt="">
+          <h2>Eggs at midnight</h2>
+          <p>Three eggs however you want them, hash from the back of the griddle, and toast. Served all night, every night.</p>
+          <p class="price">$9.50</p>
+        </article>
+        <article class="result" data-dish="plate" hidden>
+          <img src="images/dish-3.jpg" alt="">
+          <h2>The full plate</h2>
+          <p>Whatever the kitchen is proudest of that night, with two sides. Ask and they will tell you before you commit.</p>
+          <p class="price">$14.00</p>
+        </article>
+        <article class="result" data-dish="sweet" hidden>
+          <img src="images/g-food-3.jpg" alt="">
+          <h2>Pie and coffee</h2>
+          <p>One slice of whatever was baked that afternoon, warmed, with a cup of coffee that will keep you up. Worth it.</p>
+          <p class="price">$6.50</p>
+        </article>
+        <p class="result-actions">
+          <a class="btn btn-primary" href="menu.html">See the full menu</a>
+          <button class="btn" type="button" id="quizRestart">Start over</button>
+        </p>
+      </section>
+
+    </div>
   </main>
 
   <footer class="site-footer">

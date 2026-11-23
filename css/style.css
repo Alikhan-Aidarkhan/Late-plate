@@ -594,6 +594,11 @@ p {
   font-size: 15px;
 }
 
+/* keep the submit button at its own width, not stretched by the flex column */
+.field-wide .btn {
+  align-self: flex-start;
+}
+
 .form-note {
   margin: 10px 0 0;
   font-size: 14px;
@@ -605,6 +610,178 @@ p {
   border-radius: 4px;
   margin-top: 56px;
   display: block;
+}
+
+/* ---------- faq ---------- */
+.jump-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 28px 0 8px;
+  padding: 0;
+  list-style: none;
+}
+
+.jump-links a {
+  display: inline-block;
+  padding: 9px 18px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.jump-links a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.faq-item {
+  border-top: 1px solid var(--line);
+  padding: 28px 0 8px;
+  scroll-margin-top: 24px;
+}
+
+.faq-item h2 {
+  margin-top: 0;
+  font-size: 22px;
+}
+
+.back-to-top {
+  font-size: 14px;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.back-to-top:hover {
+  color: var(--accent);
+}
+
+/* ---------- page banner ---------- */
+.page-banner {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+  margin-bottom: 28px;
+}
+
+/* ---------- about: team ---------- */
+.members {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.member img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.member h3 {
+  margin: 14px 0 4px;
+  font-size: 18px;
+}
+
+.member p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.story {
+  margin-bottom: 64px;
+}
+
+.team {
+  margin-bottom: 64px;
+}
+
+/* ---------- quiz ---------- */
+.quiz {
+  max-width: 680px;
+  margin: 36px 0 64px;
+}
+
+.quiz-bar {
+  height: 4px;
+  background: var(--line);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 36px;
+}
+
+.quiz-bar span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.q-count {
+  margin: 0 0 6px;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.question h2 {
+  margin: 0 0 24px;
+  font-size: 28px;
+}
+
+.answers {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.answer {
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+  font-size: 16px;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 16px 20px;
+  cursor: pointer;
+}
+
+.answer:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.result img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+  margin-bottom: 18px;
+}
+
+.result h2 {
+  margin: 0 0 10px;
+}
+
+.result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 26px;
 }
 
 /* ---------- site footer ---------- */
@@ -743,5 +920,27 @@ p {
     border-top: 1px solid var(--line);
     padding-left: 0;
     padding-top: 28px;
+  }
+
+  .page-banner {
+    height: 180px;
+  }
+
+  .members {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .question h2 {
+    font-size: 22px;
+  }
+
+  .answer {
+    padding: 14px 16px;
+    font-size: 15px;
+  }
+
+  .result img {
+    height: 180px;
   }
 }
