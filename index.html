@@ -19,7 +19,7 @@
 
     <nav class="site-nav" id="siteNav">
       <ul>
-        <li><a href="index.html">Home</a></li>
+        <li><a class="active" href="index.html">Home</a></li>
         <li><a href="menu.html">Menu</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="about.html">About</a></li>
@@ -32,10 +32,104 @@
 
   <main>
 
+    <!-- ===== hero ===== -->
+    <section class="hero">
+      <img class="hero-photo" src="images/hero.jpg" alt="The counter at Late Plate after midnight">
+      <img class="hero-badge" src="images/open-badge.gif" alt="Open now, kitchen runs till 3 AM">
+      <div class="hero-text">
+        <h1>Hot food, long after everything else has closed.</h1>
+        <p>A counter, eight stools and a griddle that does not stop until three in the morning. Two blocks off campus.</p>
+        <p class="hero-buttons">
+          <a class="btn btn-primary" href="menu.html">See the menu</a>
+          <a class="btn" href="contact.html">Book a table</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== opening hours ===== -->
+    <section class="hours">
+      <h2>When we are open</h2>
+      <table class="hours-table">
+        <caption>Kitchen closes thirty minutes before the room does.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Day</th>
+            <th scope="col">Kitchen</th>
+            <th scope="col">Room</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Monday</th><td>Closed</td><td>Closed</td></tr>
+          <tr><th scope="row">Tuesday</th><td>6 PM &ndash; 1 AM</td><td>6 PM &ndash; 1:30 AM</td></tr>
+          <tr><th scope="row">Wednesday</th><td>6 PM &ndash; 1 AM</td><td>6 PM &ndash; 1:30 AM</td></tr>
+          <tr><th scope="row">Thursday</th><td>6 PM &ndash; 2 AM</td><td>6 PM &ndash; 2:30 AM</td></tr>
+          <tr><th scope="row">Friday</th><td>6 PM &ndash; 3 AM</td><td>6 PM &ndash; 3:30 AM</td></tr>
+          <tr><th scope="row">Saturday</th><td>5 PM &ndash; 3 AM</td><td>5 PM &ndash; 3:30 AM</td></tr>
+          <tr><th scope="row">Sunday</th><td>5 PM &ndash; 12 AM</td><td>5 PM &ndash; 12:30 AM</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ===== featured dishes ===== -->
+    <section class="featured">
+      <h2>What people order</h2>
+      <div class="cards">
+
+        <article class="card">
+          <img src="images/dish-1.jpg" alt="Dish one">
+          <h3>Dish name</h3>
+          <p>One or two lines describing the dish, written by the team.</p>
+          <p class="price">$0.00</p>
+        </article>
+
+        <article class="card">
+          <img src="images/dish-2.jpg" alt="Dish two">
+          <h3>Dish name</h3>
+          <p>One or two lines describing the dish, written by the team.</p>
+          <p class="price">$0.00</p>
+        </article>
+
+        <article class="card">
+          <img src="images/dish-3.jpg" alt="Dish three">
+          <h3>Dish name</h3>
+          <p>One or two lines describing the dish, written by the team.</p>
+          <p class="price">$0.00</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== about teaser: the photo here is the floated element ===== -->
+    <section class="teaser">
+      <img class="teaser-photo" src="images/interior.jpg" alt="The dining room at Late Plate">
+      <h2>Why we stay open</h2>
+      <p>Placeholder paragraph. The team will write the real story of the diner here: who started it, why the late hours, and what the room feels like at one in the morning.</p>
+      <p>A second paragraph wraps around the photo as well, which is what the float is for.</p>
+      <p class="clear-after"><a class="btn" href="about.html">Our story</a></p>
+    </section>
+
+    <!-- ===== find us ===== -->
+    <section class="find-us">
+      <div class="find-text">
+        <h2>Find us</h2>
+        <p>123 Northwestern Avenue<br>West Lafayette, IN 47906</p>
+        <p>Two blocks from the Purdue Memorial Union. Street parking after 6 PM.</p>
+        <p><a href="https://maps.google.com" target="_blank" rel="noopener">Open in Google Maps</a></p>
+      </div>
+      <img src="images/map.jpg" alt="Map showing Late Plate on Northwestern Avenue">
+    </section>
+
+    <!-- ===== quiz teaser ===== -->
+    <section class="quiz-teaser">
+      <h2>Not sure what you want?</h2>
+      <p>Answer five questions and we will tell you what to order tonight.</p>
+      <p><a class="btn btn-primary" href="quiz.html">Take the quiz</a></p>
+    </section>
+
   </main>
 
   <footer class="site-footer">
-    <p>&copy; 2026 Late Plate · 123 Northwestern Ave, West Lafayette, IN</p>
+    <p>&copy; 2026 Late Plate &middot; 123 Northwestern Ave, West Lafayette, IN</p>
   </footer>
 
   <script src="js/main.js"></script>
