@@ -146,3 +146,50 @@ if (photoGrid) {
     }
   });
 }
+
+
+// ---------- booking form: check nothing required is blank ----------
+const bookingForm = document.getElementById("bookingForm");
+
+if (bookingForm) {
+  // every field we insist on, and the id of its error message
+  const required = ["name", "email", "party", "date", "time"];
+
+  function validateField(id) {
+    const input = document.getElementById(id);
+    const error = document.getElementById("err-" + id);
+    const empty = input.value.trim() === "";
+
+    error.hidden = !empty;
+    input.classList.toggle("invalid", empty);
+
+    return !empty;
+  }
+
+  bookingForm.addEventListener("submit", function (event) {
+    let ok = true;
+
+    required.forEach(function (id) {
+      // call it for every field, so all the errors show at once
+      if (!validateField(id)) {
+        ok = false;
+      }
+    });
+
+    if (!ok) {
+      // stop the browser sending the form to reserve.php
+      event.preventDefault();
+      document.getElementById("formSummary").hidden = false;
+      document.querySelector(".invalid").focus();
+    }
+  });
+
+  // once a field has been marked red, clear it as soon as it is filled in
+  required.forEach(function (id) {
+    document.getElementById(id).addEventListener("input", function () {
+      if (document.getElementById(id).classList.contains("invalid")) {
+        validateField(id);
+      }
+    });
+  });
+}
